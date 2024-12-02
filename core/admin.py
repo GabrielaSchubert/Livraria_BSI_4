@@ -8,18 +8,6 @@ from django.utils.translation import gettext_lazy as _
 
 from core.models import Autor, Categoria, Editora, Livro, User, Compra, ItensCompra
 
-class ItensCompraInline(admin.TabularInline):
-    model = ItensCompra
-    extra = 1 # Quantidade de itens adicionais
-admin.register(Compra)
-class CompraAdmin(admin.ModelAdmin):
-    list_display = ("usuario", "status")
-    search_fields = ("usuario", "status")
-    list_filter = ("usuario", "status")
-    ordering = ("usuario", "status")
-    list_per_page = 25
-    inlines = [ItensCompraInline]
-
 @admin.register(User)
 class UserAdmin(BaseUserAdmin):
     """Define the admin pages for users."""
@@ -94,3 +82,16 @@ class LivroAdmin(admin.ModelAdmin):
     list_filter = ('editora', 'categoria')
     ordering = ('titulo', 'editora', 'categoria')
     list_per_page = 25
+
+class ItensCompraInline(admin.StackedInline):
+    model = ItensCompra
+    extra = 1 # Quantidade de itens adicionais
+
+@admin.register(Compra)
+class CompraAdmin(admin.ModelAdmin):
+    list_display = ("usuario", "status")
+    search_fields = ("usuario", "status")
+    list_filter = ("usuario", "status")
+    ordering = ("usuario", "status")
+    list_per_page = 25
+    inlines = [ItensCompraInline]
