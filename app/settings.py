@@ -153,7 +153,7 @@ AUTH_USER_MODEL = "core.User"
 REST_FRAMEWORK = {
     #"DEFAULT_AUTHENTICATION_CLASSES": ("core.authentication.TokenAuthentication",),  # Autenticação no passage.id
     #"DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly", ),  # autorização de acesso
-     # Permissão total para usuários autenticados
+    # Permissão total para usuários autenticados
     # "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",), # Permissões através dos grupos do Django
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
