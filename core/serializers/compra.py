@@ -51,7 +51,7 @@ class CompraSerializer(ModelSerializer):
         fields = ("id", "usuario", "status", "total", "data", "tipo_pagamento","itens")
 
 class CompraCreateUpdateSerializer(ModelSerializer):
-    itens = ItensCompraCreateUpdateSerializer(many=True) # Aqui mudou
+    itens = ItensCompraCreateUpdateSerializer(many=True)
     usuario = HiddenField(default=CurrentUserDefault())
 
     class Meta:
